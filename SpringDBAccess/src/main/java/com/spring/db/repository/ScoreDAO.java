@@ -67,7 +67,7 @@ public class ScoreDAO implements IScoreDAO {
 	public ScoreVO selectOne(int num) {
 		String sql = "SELECT * FROM scores WHERE stu_id=?";
 		
-		try {
+		try { //queryForObject 하나만 조회 할 때
 			return template.queryForObject(sql, new ScoreMapper(), num);
 		} catch (Exception e) {
 			return null;
