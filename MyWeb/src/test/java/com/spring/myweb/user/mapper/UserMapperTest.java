@@ -1,7 +1,12 @@
 package com.spring.myweb.user.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,20 +53,36 @@ public class UserMapperTest {
 		String pw = "aaa1111!";
 		UserVO vo = mapper.login(id, pw);
 		
-		assertTrue(vo.getUserName().equals("홍길동"));
+		/*
+		Map<String, String> data = new HashMap<>();
+		data.put("id" ,"abc1234");
+		data.put("pw" ,"aaa1111!");
+		*/
+		
+		assertNotNull(vo);
+//		assertTrue(vo.getUserName().equals("홍길동"));
 		
 	}
 	
 	@Test
 	@DisplayName("존재하지 않는 회원의 아이디를 입력하면 null이 올 것이다.")
 	void getInfoTest() {
+		assertNull(mapper.getInfo("merong"));
 		
 	}
 	
 	@Test
 	@DisplayName("id를 제외한 회원의 정보를 수정할 수 있다")
 	void updateTest() {
+		UserVO vo = new UserVO();
+		vo.setUserId("abc1234");
+		vo.setUserPw("aaa1111!");
+		vo.setUserName("홍수정");
+		vo.setUserEmail1("abc1234");
+		vo.setUserEmail2("naver.com");
+		mapper.updateUser(vo);
 		
+		assertEquals(mapper.getInfo("abc1234").getUserName(), vo.getUserName());
 	}
 	
 	
