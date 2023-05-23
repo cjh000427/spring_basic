@@ -17,8 +17,8 @@ CREATE TABLE freereply(
     
     reply VARCHAR(1000),
     reply_id VARCHAR(50),
-    relpy_pw VARCHAR(50),
-    relpy_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    reply_pw VARCHAR(50),
+    reply_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     update_date DATETIME DEFAULT NULL
 );
  */
@@ -30,9 +30,9 @@ public class ReplyVO {
 	private int rno;
 	private int bno;
 	
-	private String relpy;
-	private String relpyId;
-	private String relpyPw;
+	private String reply;
+	private String replyId;
+	private String replyPw;
 	private LocalDateTime replyDate;
 	private LocalDateTime updateDate;
 

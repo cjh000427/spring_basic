@@ -14,7 +14,7 @@
 		SELECT * FROM freereply
 		WHERE bno = #{bno}
 		ORDER BY rno DESC
-		LIMIL #{paging.pageStart}, #{paging.cpp}
+		LIMIT #{paging.pageStart}, #{paging.cpp}
 	</select>
 	
 	<select id="getTotal" resultType="int">
@@ -23,9 +23,22 @@
 		WHERE bno = #{bno}
 	</select>
 	
+	<select id="pwCheck" resultType="string">
+		SELECT reply_pw
+		FROM freereply
+		WHERE rno = #{rno}
+	</select>
 	
+	<update id="update">
+		UPDATE freereply 
+		SET reply = #{reply}, update_date = current_timestamp
+		WHERE rno = #{rno}
+	</update>
 	
-	
+	<delete id="delete">
+		DELETE FROM freereply
+		WHERE rno = #{rno}
+	</delete>
 	
 	
 </mapper>
