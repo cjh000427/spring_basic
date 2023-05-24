@@ -76,7 +76,6 @@ public class ReplyController {
 	@DeleteMapping("/{rno}")
 	public String delete(@PathVariable int rno, @RequestBody ReplyVO vo) {
 		vo.setRno(rno);
-		
 		if(service.pwCheck(vo)) {
 			service.delete(rno);
 			return "deleteSuccess";
