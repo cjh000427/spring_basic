@@ -1,0 +1,45 @@
+package com.spring.myweb.command;
+
+import java.time.LocalDateTime;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+/*
+CREATE TABLE snsboard(
+	bno INT PRIMARY KEY AUTO_INCREMENT,
+    writer VARCHAR(50) NOT NULL,
+    upload_path VARCHAR(100) NOT NULL,
+    file_loca VARCHAR(100) NOT NULL,
+    file_name VARCHAR(50) NOT NULL,
+    file_real_name VARCHAR(50) NOT NULL,
+    content VARCHAR(2000),
+    reg_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+ */
+@Getter @Setter @ToString
+@NoArgsConstructor @AllArgsConstructor
+public class SnsBoardVO {
+	
+	private int bno;
+	private String writer;
+	private String uploadPath; //경로 C:/test/...
+	private String fileLoca; //날짜 20230525...
+	private String fileName; //uuid 이름
+	private String fileRealName; //원본 파일 이름
+	private String content;
+	private LocalDateTime regDate;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
